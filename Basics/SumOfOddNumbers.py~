@@ -1,0 +1,17 @@
+#Write a program to accept a range from user & display sum of odd numbers in that range
+
+#!/usr/bin/python
+
+def printSumOfOddNumbers(iLower,iUpper):
+	
+	for x in range(iLower,iUpper,1):
+		if(x & 1):
+			print(x )
+
+def main():
+	iLower=input("Enter lower bound :")
+	iUpper=input("Enter upper bound :")
+	print("Odd numbers in given range :")
+	printOddNumbers(iLower,iUpper)
+if __name__=="__main__":
+	main()
