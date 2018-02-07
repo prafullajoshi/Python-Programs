@@ -1,0 +1,38 @@
+#Write a program to accept two numbers from user,accept different positions for two numbers and no of bits to be swapped from given two numbers
+def SwapSetOfBitsWithDifferentPosition(num1,num2,pos1,pos2,noOfBits):
+	temp=1
+	temp=(temp<<noOfBits)-1
+	temp1=temp<<(pos1-noOfBits)
+	temp2=temp<<(pos2-noOfBits)
+	
+
+	x_part=(num1 & temp1) >> (pos1-noOfBits)
+	y_part=(num2 & temp2) >> (pos2-noOfBits)
+	
+	x_part=x_part << (pos2-noOfBits)
+	y_part=y_part << (pos1-noOfBits)
+		
+	num1=num1 & (~temp1)
+	num2=num2 & (~temp2)
+		
+	x_swapped=y_part | num1
+	y_swapped=x_part | num2	
+	return x_swapped,y_swapped
+
+def main():
+	num1=input("Enter 1st number :")
+	pos1=input("Enter the position for 1st number :")
+	
+	num2=input("Enter 2nd number :")
+	pos2=input("Enter the position for 2nd number :")
+	noOfBits=input("Enter number of bits to swap :")
+	
+	if pos1 > noOfBits and pos2 > noOfBits:
+		x_swapped,y_swapped=SwapSetOfBits(num1,num2,pos1,pos2,noOfBits)
+		print("After swapping {} bits from {}  and {} \n".format(noOfBits,num1,num2,SwapSetOfBits(num1,num2,pos1,pos2,noOfBits)))
+		print("x_swapped :{}\ny_swaped :{}".format(x_swapped,y_swapped))
+	else:
+		print("Position must be larger than number of bits to be swapped.\nExiting..")
+	
+if __name__=="__main__":
+	main()
