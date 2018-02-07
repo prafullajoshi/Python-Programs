@@ -1,0 +1,22 @@
+def charCountDict(input_str):
+	result_dict={}
+	i=0
+	while i < len(input_str):
+		char_to_check = input_str[i]
+		count = 1
+		if char_to_check in result_dict:
+			while i+1 < len(input_str) and char_to_check == input_str[i]:
+				count+=1
+				i+=1
+			#result_dict[input_str[i]]=result_dict[input_str[i]]+1
+			i+=1
+		else:
+			result_dict[input_str[i]]=1
+	return result_dict
+def main():
+	input_str = input("Enter the string :")
+	result_dict = charCountDict(input_str)
+	print(result_dict)
+		
+if __name__=="__main__":
+	main()
