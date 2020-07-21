@@ -16,3 +16,6 @@ class Product:
 product = Product(50)
 # product.price = 234
 print(product.price)
+
+product2 = Product(245)
+print(product.price)
