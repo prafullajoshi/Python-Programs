@@ -1,3 +1,4 @@
+from pathlib import Path
 from pathlib import Path, PurePath, PureWindowsPath
 
 # WORKING WITH FILE
@@ -38,3 +39,8 @@ print(path)
 # print(path.iterdir())
 # for f in path.iterdir():
 #     print(f)
+
+path = Path("./ecommerce/__init__.py")
+path.exists()
+# path.rename("input.txt")
+print(path.stat())
